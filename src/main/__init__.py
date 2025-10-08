@@ -42,8 +42,8 @@ class Grid:
         """
         if not isinstance(value, tuple) or len(value) != 2:
             raise TypeError
-        x = max(0, min(int(value[0]), self.width))
-        y = max(0, min(int(value[1]), self.height))
+        x = max(0, min(int(value[0]), self.width - 1))
+        y = max(0, min(int(value[1]), self.height - 1))
         self._current_pos = (x, y)
 
     def move_forward(self) -> Tuple[int, int]:
@@ -98,10 +98,10 @@ class Grid:
 class AdvancedGrid(Grid):
     def __init__(self, width, height, enemy_pos):
         super().__init__(width, height, enemy_pos)
-        self.steps = 0          
+        self.steps = 0
 
     def move_forward(self) -> Tuple[int, int]:
-        self.steps += 1         
+        self.steps += 1
         return super().move_forward()
 
     def distance_to_enemy(self) -> int:

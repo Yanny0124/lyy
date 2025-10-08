@@ -98,13 +98,13 @@ class Grid:
 class AdvancedGrid(Grid):
     def __init__(self, width, height, enemy_pos):
         super().__init__(width, height, enemy_pos)
-        self.step = 0
+        self.steps = 0          
 
     def move_forward(self) -> Tuple[int, int]:
-        self.step += 1
+        self.steps += 1         
         return super().move_forward()
 
     def distance_to_enemy(self) -> int:
-        x, y = self._current_pos
+        x, y = self.current_pos
         xx, yy = self.enemy_pos
         return abs(x - xx) + abs(y - yy)

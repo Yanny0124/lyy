@@ -42,8 +42,8 @@ class Grid:
         """
         if not isinstance(value, tuple) or len(value) != 2:
             raise TypeError
-        x = max(0, min(int(value[0]), self.width - 1))
-        y = max(0, min(int(value[1]), self.height - 1))
+        x = max(0, min(int(value[0]), self.width))
+        y = max(0, min(int(value[1]), self.height))
         self._current_pos = (x, y)
 
     def move_forward(self) -> Tuple[int, int]:

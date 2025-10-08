@@ -7,7 +7,7 @@ from typing import Tuple
 
 
 class Facing(Enum):
-    """Facing 我们定义为一个枚举类，用于定义方向。如有疑问可以自行 Google / Ask AI"""
+    """Facing 我们定义为一个枚举类，用于定义方向。"""
     RIGHT = 0
     UP = 1
     LEFT = 2
@@ -22,7 +22,6 @@ class Grid:
         self._current_pos: tuple = (0, 0)
         self.current_direction = Facing.UP
         self.enemy_pos: tuple = enemy_pos
-        # 用于存储位置历史，键为步数，值为坐标
         self.position_history: dict = {}
 
     @property
@@ -37,7 +36,7 @@ class Grid:
         要求：
           - 接受一个长度为 2 的 tuple (x, y)
           - 若传入非 tuple 或长度不为 2，应抛出 TypeError
-          - 将 x, y 强制转换为 int ，检查是否超出了宽高范围，
+          - 将 x, y 强制转换为 int，检查是否超出了宽高范围，
             如果任何一个超出则将其限制在最大宽高范围即可
           - 处理后存入 self._current_pos
         """
